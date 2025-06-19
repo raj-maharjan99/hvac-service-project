@@ -2,10 +2,12 @@
 import { navTitle } from "@/lib/data";
 import { Phone, Wind } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const usePathName = usePathname();
 
   return (
     <nav className="bg-white bg-opacity-10 backdrop-blur-md shadow-md w-full">
@@ -25,7 +27,9 @@ export default function Navbar() {
                 <Link
                   key={item.id}
                   href={item.path}
-                  className="text-gray-700 hover:text-green-600 transition"
+                  className={`text-gray-700  transition ${
+                    usePathName === item.path && "font-bold"
+                  } `}
                 >
                   {item.name}
                 </Link>
