@@ -1,102 +1,129 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-white text-black flex flex-col">
+      {/* Hero Section */}
+      <section className="bg-white py-20 text-center">
+        <div className="container mx-auto px-6">
+          <h1 className="text-5xl font-extrabold mb-4 text-gray-900">
+            EcoAir Solutions
+          </h1>
+          <p className="text-xl mb-6 text-gray-700">
+            Professional HVAC Services Focused on Efficiency, Comfort &
+            Sustainability
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-gray-600 text-white px-6 py-3 rounded-md shadow hover:bg-green-700 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Request a Free Estimate
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-10">Our Core Services</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "HVAC Installation",
+              "AC & Heating Repair",
+              "Duct Cleaning & Replacement",
+              "Smart Thermostat Setup",
+              "Seasonal Maintenance",
+              "Energy-Saving Upgrades",
+            ].map((service, i) => (
+              <div
+                key={i}
+                className="p-6 border rounded-lg shadow hover:shadow-lg transition text-left"
+              >
+                <h3 className="font-semibold text-xl mb-2">{service}</h3>
+                <p className="text-gray-600 text-sm">
+                  High-quality, reliable, and eco-conscious solutions to keep
+                  your home or business comfortable.
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/services"
+              className="text-green-600 underline hover:text-green-800"
+            >
+              View Full Service List &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-white py-16 border-t">
+        <div className="container mx-auto px-6 max-w-5xl text-center">
+          <h2 className="text-3xl font-bold mb-8">Why Choose EcoAir?</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            {[
+              {
+                title: "Eco-Friendly Approach",
+                desc: "We use energy-efficient systems and green practices that reduce your carbon footprint.",
+              },
+              {
+                title: "Fast & Reliable Service",
+                desc: "Our technicians arrive on time and complete jobs with precision and care.",
+              },
+              {
+                title: "Experienced Team",
+                desc: "Backed by years of hands-on HVAC experience and technical expertise.",
+              },
+              {
+                title: "Transparent Pricing",
+                desc: "No hidden fees. Just honest, upfront pricing you can trust.",
+              },
+              {
+                title: "Locally Owned",
+                desc: "Proudly serving Houston and surrounding areas with personalized service.",
+              },
+              {
+                title: "Emergency Support",
+                desc: "We’re available when you need us most — day or night.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-lg border shadow-sm hover:shadow-md transition"
+              >
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="bg-white border-t py-14 text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-4">
+            Ready for Comfort & Savings?
+          </h2>
+          <p className="mb-6 text-gray-700">
+            Contact EcoAir Solutions today for top-tier HVAC service you can
+            trust.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition"
+          >
+            Contact Us Now
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t py-6 text-center text-sm text-gray-600">
+        &copy; {new Date().getFullYear()} EcoAir Solutions. All rights reserved.
       </footer>
     </div>
   );
